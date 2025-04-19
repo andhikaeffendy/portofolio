@@ -1,13 +1,13 @@
-import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === "production";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  trailingSlash: true,
-  basePath: isProd ? "/portofolio" : "",
-  assetPrefix: isProd ? "/portofolio/" : "",
-  output: "export", // <-- INI PENTING!
+  output: 'export',
+  distDir: 'out',
+  images: {
+    unoptimized: true,
+  },
+  basePath: '/portofolio',
+  assetPrefix: '/portofolio',
 };
 
 export default nextConfig;
