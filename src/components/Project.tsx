@@ -3,13 +3,13 @@
 import { useState } from "react";
 import MotionSection from "./shared/MotionSection";
 import Image, { StaticImageData } from "next/image";
-import anakSehat from "@/public/images/anak_sehat.png";
-import belahDoeren from "@/public/images/belah_doeren.png";
-import f1Approval from "@/public/images/f1_approval.png";
-import bumdes from "@/public/images/bumdes.png";
-import lapangBola from "@/public/images/lapang_bola.png";
-import ngelesin from "@/public/images/ngelesin.png";
-import companyProfile from "@/public/images/company_profile.png";
+import anakSehat from "/public/anak_sehat.png";
+import belahDoeren from "/public/belah_doeren.png";
+import f1Approval from "/public/f1_approval.png";
+import bumdes from "/public/bumdes.png";
+import lapangBola from "/public/lapang_bola.png";
+import ngelesin from "/public/ngelesin.png";
+import companyProfile from "/public/company_profile.png";
 
 type Project = {
   id: number;

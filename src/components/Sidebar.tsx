@@ -14,7 +14,7 @@ import { BsFillPersonFill, BsFillEnvelopeFill } from "react-icons/bs";
 import { PiNoteBold } from "react-icons/pi";
 import NavItem from "./shared/NavItem";
 import Image from "next/image";
-import profilePic from "@/public/images/profile.jpeg"; // Import gambar
+import profilePic from "/public/profile.jpeg"; // Import gambar
 
 const sectionIds = ["hero", "about", "skills", "resume", "project", "contact"];
 

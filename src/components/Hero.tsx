@@ -1,4 +1,4 @@
-import profilePic from "@/public/images/profile.jpeg"; // Import gambar
+import profilePic from "/public/profile.jpeg"; // Import gambar
 
 export default function Hero() {
   return (

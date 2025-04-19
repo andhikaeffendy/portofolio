@@ -1,6 +1,6 @@
 import Image from "next/image";
 import MotionSection from "./shared/MotionSection";
-import profilePic from "@/public/images/profile.jpeg"; // Import gambar
+import profilePic from "/public/profile.jpeg"; // Import gambar
 
 export default function About() {
   return (
