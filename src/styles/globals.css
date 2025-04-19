@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCaret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 4px solid #3498db; /* Kursor berkedip */
+  width: 0;
+  animation: typing 2.5s steps(9, end) 0.5s 1 forwards,
+    blinkCaret 0.75s step-end infinite;
+  animation-delay: 0.5s; /* Menunggu sebelum memulai animasi */
+}
+
+.animate-restart {
+  animation: typing 4s steps(20) 1s infinite, blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes typingLoop {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100%;
+  }
+  70% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.animate-type-loop {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 4px solid #3498db;
+  width: 0;
+  animation: typingLoop 4s steps(9, end) infinite,
+    blinkCaret 0.75s step-end infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
