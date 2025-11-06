@@ -1,8 +1,33 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function ResumeSection() {
+  const resumeRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const element = document.getElementById(
+        window.location.hash.replace("#", "")
+      );
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    handleHashChange(); // to handle case when page loads with hash
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
     <section
       id="resume"
-      className="py-16 px-6 md:px-8 lg:px-16 bg-white text-gray-900"
+      ref={resumeRef}
+      className="py-16 px-6 md:px-8 lg:px-16 bg-white text-gray-900 min-h-screen"
     >
       <div className="max-w-6xl mx-auto">
         <SectionHeader title="Professional Experience" />
@@ -36,8 +61,8 @@ function ResumeColumn({
   isEducation?: boolean;
 }) {
   return (
-    <div className={isEducation ? "md:w-1/3" : "md:w-2/3"}>
-      <div className="bg-white border-l-4 border-blue-500 pl-6 pr-4 py-6 shadow-md rounded-xl h-full">
+    <div className={isEducation ? "w-full md:w-1/3" : "w-full md:w-2/3"}>
+      <div className="bg-white border-l-4 border-blue-500 pl-6 pr-4 py-6 shadow-md rounded-xl">
         <h3 className="text-2xl font-semibold text-blue-600 mb-8">{title}</h3>
         <div className="space-y-8">
           {items.map((item, index) =>
@@ -108,9 +133,6 @@ function ExperienceItem({
   );
 }
 
-// ----------------------------
-// Dummy Data (could be in a separate file)
-// ----------------------------
 const educationData = [
   {
     year: "2018 - 2020",

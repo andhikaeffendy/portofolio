@@ -1,13 +1,15 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  distDir: 'out',
+  reactStrictMode: true,
+  trailingSlash: true,
+  basePath: isProd ? "/portofolio" : "",
+  assetPrefix: isProd ? "/portofolio/" : "",
+  output: "export", // <-- INI PENTING!
   images: {
-    unoptimized: true,
+    unoptimized: true, // Disable built-in image optimization
+    path: '/_next/image/', // Default path for images
   },
-  basePath: '/portofolio',
-  assetPrefix: '/portofolio',
 };
 
 export default nextConfig;

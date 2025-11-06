@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Sidebar />
 
-      <main className="w-full pl-0 md:pl-64">
+      <main className="min-h-screen overflow-x-hidden md:pt-0 pl-0 md:pl-64">
         <MotionSection id="hero" delay={0}>
           <Hero />
         </MotionSection>
@@ -26,9 +26,9 @@ export default function Home() {
         <MotionSection id="resume" delay={0.3}>
           <Resume />
         </MotionSection>
-        <MotionSection id="project" delay={0.4}>
+        <section id="project">
           <Projects />
-        </MotionSection>
+        </section>
         <MotionSection id="contact" delay={0.5}>
           <Contact />
         </MotionSection>
