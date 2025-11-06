@@ -26,12 +26,17 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - name: Restore Next.js cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
       - name: Install dependencies
         run: npm ci
-      - name: Build and Export static site
-        run: |
-          npm run build
-          npm run export
+      - name: "Build static site (output: export)"
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -42,8 +47,7 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deploy
+        id: deployment
         uses: actions/deploy-pages@v4
