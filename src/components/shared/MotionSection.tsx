@@ -15,7 +15,7 @@ export default function MotionSection({ children, delay = 0, id }: Props) {
       id={id}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.7, delay }}
     >
       {children}

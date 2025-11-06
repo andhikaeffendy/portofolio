@@ -136,7 +136,7 @@ export default function Portfolio() {
         </MotionSection>
 
         {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <MotionSection key={project.id} delay={0.2 + index * 0.1}>
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 h-full flex flex-col">
